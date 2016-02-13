@@ -12,12 +12,13 @@ We're going to build off our previous iteration of our Blog App, where we create
 3. Now we can build a nested form on our Post form. Check out the documentation on [Nested Forms](http://guides.rubyonrails.org/form_helpers.html#nested-forms) for help.
 4. We should be able to select previously created tags, as well as create a new tag.
 5. Remember, because we have a uniqueness validation on the name of tag, we will need to account for that; a user shouldn't have to submit a new tag every time they submit a post.
-```ruby
-class Member < ActiveRecord::Base
-  has_many :posts
-  accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['title'].blank? }
-end
-```
+  
+  ```ruby
+  class Member < ActiveRecord::Base
+    has_many :posts
+    accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['title'].blank? }
+  end
+  ```
 6. To allow a user to create a new tag, the controller action for a new tag should instantiate a new tag. Check out the documentation for the [fields_for tag](http://apidock.com/rails/ActionView/Helpers/FormBuilder/fields_for).
 
 ## Resources
@@ -29,4 +30,4 @@ end
 
 [Preventing Empty Records](http://guides.rubyonrails.org/form_helpers.html#preventing-empty-records)
 
-<a href='https://learn.co/lessons/rails-blog-nested-forms' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/rails-blog-nested-forms' title='Rails Blog: Complex Nested Forms'>Rails Blog: Complex Nested Forms</a> on Learn.co and start learning to code for free.</p>

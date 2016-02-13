@@ -12,19 +12,21 @@
   <% end %>
 
   <div class="field">
+  <%= form_for @post do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
     <%= f.label :content %><br>
     <%= f.text_area :content %><br>
-    Tags:
-  </div>
-
-  <div class="field">
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
+    <%= f.fields_for :tags, Tag.new do |t| %>
+      <%= t.label :'New Tag' %>
+      <%= t.text_field :name %>
+    <% end %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+  <% end %>
 
 <% end %>
