@@ -1,5 +1,8 @@
 class TagsController < ApplicationController
 
+  def new
+    @tag = Tag.new
+  end
   # GET /tags
   # GET /tags.json
   def index
